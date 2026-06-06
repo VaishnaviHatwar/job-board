@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', form)
+      const res = await axios.post('https://job-board-kvp0.onrender.com/api/auth/login', form)
       login(res.data.user, res.data.token)
       navigate(res.data.user.role === 'employer' ? '/employer/dashboard' : '/candidate/dashboard')
     } catch (err) {

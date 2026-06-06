@@ -12,7 +12,7 @@ const JobDetail = () => {
   const [message, setMessage] = useState('')
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/jobs/${id}`)
+    axios.get(`https://job-board-kvp0.onrender.com/api/jobs/${id}`)
       .then(res => setJob(res.data))
       .catch(err => console.error(err))
   }, [id])
@@ -23,7 +23,7 @@ const JobDetail = () => {
     try {
       const formData = new FormData()
       if (resume) formData.append('resume', resume)
-      await axios.post(`http://localhost:5000/api/applications/${id}`, formData, {
+      await axios.post(`https://job-board-kvp0.onrender.com/api/applications/${id}`, formData, {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'multipart/form-data' }
       })
       setMessage('Applied successfully!')

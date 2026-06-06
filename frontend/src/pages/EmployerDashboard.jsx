@@ -17,7 +17,7 @@ const EmployerDashboard = () => {
 
   const fetchMyJobs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/jobs', {
+      const res = await axios.get('https://job-board-kvp0.onrender.com/api/jobs', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setJobs(res.data.filter(j => j.postedBy?._id === user.id))
@@ -29,7 +29,7 @@ const EmployerDashboard = () => {
   const handlePost = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/api/jobs', form, {
+      await axios.post('https://job-board-kvp0.onrender.com/api/jobs', form, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setMessage('Job posted successfully!')
@@ -42,7 +42,7 @@ const EmployerDashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/jobs/${id}`, {
+      await axios.delete(`https://job-board-kvp0.onrender.com/api/jobs/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       fetchMyJobs()

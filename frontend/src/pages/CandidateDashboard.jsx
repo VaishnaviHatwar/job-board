@@ -10,7 +10,7 @@ const CandidateDashboard = () => {
 
   useEffect(() => {
     if (!user || user.role !== 'candidate') return navigate('/login')
-    axios.get('http://localhost:5000/api/applications/my', {
+    axios.get('https://job-board-kvp0.onrender.com/api/applications/my', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => setApplications(res.data))

@@ -20,7 +20,7 @@ const AiChatbot = () => {
 
     try {
       const conversationHistory = updatedMessages.filter(m => m.role !== 'system')
-      const res = await axios.post('http://localhost:5000/api/ai/recommend', {
+      const res = await axios.post('https://job-board-kvp0.onrender.com/api/ai/recommend', {
         message: input,
         conversationHistory: conversationHistory.slice(-6)
       })

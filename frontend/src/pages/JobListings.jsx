@@ -15,7 +15,7 @@ const JobListings = () => {
     try {
       const search = filters.search || ''
       const location = filters.location || ''
-      const res = await axios.get(`http://localhost:5000/api/jobs?search=${search}&location=${location}`)
+      const res = await axios.get(`https://job-board-kvp0.onrender.com/api/jobs?search=${search}&location=${location}`)
       console.log('Jobs data:', res.data)
       setJobs(res.data)
       setLoading(false)

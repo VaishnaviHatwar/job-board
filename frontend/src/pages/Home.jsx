@@ -8,13 +8,13 @@ const Home = () => {
   const [jobs, setJobs] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/jobs')
+    axios.get('https://job-board-kvp0.onrender.com/api/jobs')
       .then(res => setJobs(res.data.slice(0, 6)))
       .catch(err => console.error(err))
   }, [])
 
   const handleSearch = ({ search, location }) => {
-    axios.get(`http://localhost:5000/api/jobs?search=${search}&location=${location}`)
+    axios.get(`https://job-board-kvp0.onrender.com/api/jobs?search=${search}&location=${location}`)
       .then(res => setJobs(res.data.slice(0, 6)))
   }
 
